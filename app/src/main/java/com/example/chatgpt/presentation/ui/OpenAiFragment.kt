@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatgpt.commons.utils.*
 import com.example.chatgpt.databinding.FragmentOpenAiBinding
-import com.example.chatgpt.presentation.OpenAiListAdapter
+import com.example.chatgpt.presentation.adapter.OpenAiListAdapter
 import com.example.chatgpt.presentation.model.MessageView
 import com.example.chatgpt.presentation.model.OpenAiEvent
 import com.example.chatgpt.presentation.model.OpenAiScreenState
@@ -23,7 +23,7 @@ class OpenAiFragment : Fragment() {
 
     private val viewModel by viewModel<OpenAiViewModel>()
 
-    private lateinit var adapter: OpenAiListAdapter
+    private lateinit var mAdapter: OpenAiListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,9 +39,9 @@ class OpenAiFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        adapter = OpenAiListAdapter(requireContext())
+        mAdapter = OpenAiListAdapter()
         binding.recyclerView.run {
-            adapter = adapter
+            this.adapter = mAdapter
             layoutManager = LinearLayoutManager(context)
         }
     }
@@ -81,7 +81,7 @@ class OpenAiFragment : Fragment() {
 
     private fun handleSuccess(data: MutableList<MessageView>, isLocal: Boolean) {
         binding.run {
-            adapter.run {
+            mAdapter.run {
                 list = data
                 notifyDataSetChanged()
             }

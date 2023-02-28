@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_32">32dp</dimen>
+    <dimen name="dimen_260">260dp</dimen>
+
+
+
+    <dimen name="font_size_small">11sp</dimen>
+    <dimen name="font_size_large">16sp</dimen>
+</resources>
