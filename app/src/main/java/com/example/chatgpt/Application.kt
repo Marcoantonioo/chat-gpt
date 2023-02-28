@@ -1,10 +1,9 @@
 package com.example.chatgpt
 
 import android.app.Application
-import com.example.chatgpt.data.di.DataModule
-import com.example.chatgpt.domain.di.DomainModule
+import com.example.chatgpt.commons.CommonsModule
+import com.example.chatgpt.features.chat.ChatModule
 import com.example.chatgpt.network.di.NetworkModule
-import com.example.chatgpt.presentation.di.PresentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication
@@ -22,9 +21,8 @@ class Application : Application() {
     }
 
     private fun KoinApplication.getModules() = modules(
-        PresentationModule.module,
-        DomainModule.module,
-        DataModule.module,
-        NetworkModule.module
+        CommonsModule.module,
+        NetworkModule.module,
+        ChatModule.module
     )
 }
