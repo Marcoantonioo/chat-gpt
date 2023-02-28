@@ -1,0 +1,1 @@
+C:\Users\Marco\Documents\projects\ChatGPT2\buildSrc\build\classes\kotlin\main\ConfigData.class;C:\Users\Marco\Documents\projects\ChatGPT2\buildSrc\build\classes\kotlin\main\Dependencies.class;C:\Users\Marco\Documents\projects\ChatGPT2\buildSrc\build\classes\kotlin\main\Versions.class

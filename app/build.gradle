@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.chatgpt'
+    compileSdk ConfigData.compileSdk
+
+    defaultConfig {
+        applicationId "com.example.chatgpt"
+        minSdk ConfigData.minSdk
+        targetSdk ConfigData.targetSdk
+        versionCode ConfigData.versionCode
+        versionName ConfigData.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.openai.com/v1/\"")
+            buildConfigField("String", "AUTHORIZATION", "\"Bearer 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\"") // TODO
+            buildConfigField("String", "OPEN_IA_ORGANIZATION", "\"org-6QV79YRh59sWGPyEumDUc5Le\"") // TODO
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = ConfigData.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation Dependencies.coreKtx
+    implementation Dependencies.appCompact
+    implementation Dependencies.material
+    implementation Dependencies.constraintLayout
+
+    implementation Dependencies.koin
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofitGsonConverter
+    implementation Dependencies.okhttpLoggingInterceptor
+
+    implementation Dependencies.runtimeLifecycle
+    implementation Dependencies.viewModelLifecycle
+
+    testImplementation Dependencies.koinTest
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitExt
+    androidTestImplementation Dependencies.espressoCore
+}
