@@ -42,27 +42,29 @@ class OpenAiViewModel(
     }
 
     private suspend fun handleStart(message: String) {
+        _state.emit(OpenAiScreenState.Loading(isLoading = true))
         populateMessage(message = message.mapMessageToMe(), isLocal = true)
     }
 
     private suspend fun handleSuccess(item: OpenAiDomain) {
         populateMessage(message = item.mapToView())
+        _state.emit(OpenAiScreenState.Loading(isLoading = false))
     }
 
     private suspend fun handleFailure(error: Throwable) {
         error.message?.let { message ->
             _state.run {
-                emit(OpenAiScreenState.Loading(isLoading = false))
+                populateMessage("Serviço indisponível no momento".mapMessageToMe())
                 emit(OpenAiScreenState.Error(message))
+                emit(OpenAiScreenState.Loading(isLoading = false))
             }
         }
     }
 
     private suspend fun populateMessage(message: MessageView, isLocal: Boolean = false) {
         _state.run {
-            emit(OpenAiScreenState.Loading(isLoading = false))
             messages.run {
-                add(message)
+                add(message.apply { isFromMe = isLocal })
                 emit(OpenAiScreenState.Success(data = this, isLocal = isLocal))
             }
         }

@@ -58,6 +58,10 @@ dependencies {
 
     testImplementation Dependencies.koinTest
     testImplementation Dependencies.junit
+    testImplementation Dependencies.mockk
+    testImplementation Dependencies.coroutinesTest
+    testImplementation Dependencies.turbine
+
     androidTestImplementation Dependencies.junitExt
     androidTestImplementation Dependencies.espressoCore
 }

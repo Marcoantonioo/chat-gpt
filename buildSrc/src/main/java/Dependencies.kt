@@ -1,4 +1,4 @@
-object Dependencies {
+object  Dependencies {
     const val coreKtx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompact = "androidx.appcompat:appcompat:${Versions.appCompact}"
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -18,4 +18,9 @@ object Dependencies {
 
     const val runtimeLifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val viewModelLifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
 }

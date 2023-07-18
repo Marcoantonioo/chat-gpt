@@ -10,4 +10,7 @@ object Versions {
     const val koin = "3.2.2"
     const val okHttpLogging = "4.9.3"
     const val lifecycle = "2.4.0-alpha03"
+    const val mockk = "1.13.4"
+    const val coroutines = "1.6.4"
+    const val turbine = "0.12.1"
 }

@@ -8,6 +8,7 @@ import com.example.chatgpt.commons.utils.formatDateToMonthAndDayFormat
 import com.example.chatgpt.databinding.MessageReceivedItemBinding
 import com.example.chatgpt.databinding.MessageSendItemBinding
 import com.example.chatgpt.features.chat.presentation.model.MessageView
+import java.util.Calendar
 
 class OpenAiListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -51,8 +52,8 @@ class OpenAiListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             item.run {
                 binding.run {
                     tvMessage.text = message.first()
-                    tvHour.text = createdAt.formatDateToHourFormat()
-                    tvDate.text = createdAt.formatDateToMonthAndDayFormat()
+                    tvHour.text = Calendar.getInstance().time.time.formatDateToHourFormat()
+                    tvDate.text = Calendar.getInstance().time.time.formatDateToMonthAndDayFormat()
                 }
             }
         }
@@ -66,8 +67,8 @@ class OpenAiListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.run {
                 item.run {
                     tvMessage.text = message.first()
-                    tvHour.text = createdAt.formatDateToHourFormat()
-                    tvDate.text = createdAt.formatDateToMonthAndDayFormat()
+                    tvHour.text = Calendar.getInstance().time.time.formatDateToHourFormat()
+                    tvDate.text = Calendar.getInstance().time.time.formatDateToMonthAndDayFormat()
                     tvName.text = NAME
                 }
             }

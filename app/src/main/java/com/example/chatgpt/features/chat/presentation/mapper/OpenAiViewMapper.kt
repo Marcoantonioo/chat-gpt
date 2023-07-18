@@ -11,7 +11,7 @@ fun OpenAiDomain.mapToView() = MessageView(
 )
 
 fun String.mapMessageToMe() = MessageView(
-    createdAt = Calendar.getInstance().time.time,
+    createdAt = null,
     isFromMe = true,
     message = listOf(this)
 )
